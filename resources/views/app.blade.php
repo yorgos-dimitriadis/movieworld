@@ -16,6 +16,10 @@
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
-        @inertia
+        <!-- @ inertia -->
+        <div id="app" class="h-full border-black" data-page="{{ json_encode($page) }}">
+
+
+        </div>
     </body>
 </html>
