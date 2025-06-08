@@ -3,6 +3,7 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoteController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -30,15 +31,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/movies/{movie}/vote', [VoteController::class, 'vote'])->name('movies.vote');
 });
 
-Route::get('/user/{user}', [MovieController::class, 'byUser'])->name('movies.byUser');
 
 Route::get('/dashboard', function () {
   return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/debug', function () {
-    return view('debug');
+Route::get('/debug', function (Request $request) {
+    return view('debug', [
+        'request' => $request,
+        'user' => $request->user(),
+        'session' => $request->session()->all(),
+        'route' => Route::currentRouteName(),
+    ]);
 })->name('debug');
 
 require __DIR__.'/auth.php';

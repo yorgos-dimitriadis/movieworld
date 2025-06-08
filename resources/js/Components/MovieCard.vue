@@ -50,10 +50,10 @@ const vote = (type) => {
         <div class="flex justify-between items-end gap-4 mt-4">
           <div class="flex items-center gap-2">
             <form @submit.prevent="vote('like')">
-              <button class="text-green-600">👍 {{ movie.likes_count }}</button>
+              <button class="text-green-600">👍 {{ movie.likes }}</button>
             </form>
             <form @submit.prevent="vote('hate')">
-              <button class="text-red-600">👎 {{ movie.hates_count }}</button>
+              <button class="text-red-600">👎 {{ movie.hates }}</button>
             </form>
           </div>
 

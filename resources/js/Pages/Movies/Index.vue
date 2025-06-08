@@ -44,8 +44,10 @@ const sortedMovies = computed(() => {
     return movies.sort((a, b) => b.hates - a.hates)
   } else if (selectedSort.value === 'date') {
     return movies.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+  } else if (selectedSort.value === 'user') {
+    return movies.sort((a, b) => a.user.name.localeCompare(b.user.name))
   }
-  console.log('sortedMovies', selectedSort.value, movies)
+
   return movies
 })
 
