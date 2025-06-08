@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,10 +19,6 @@ use Inertia\Inertia;
 
 Route::get('/', [App\Http\Controllers\MovieController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -33,6 +31,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/user/{user}', [MovieController::class, 'byUser'])->name('movies.byUser');
+
+Route::get('/dashboard', function () {
+  return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/debug', function () {
     return view('debug');

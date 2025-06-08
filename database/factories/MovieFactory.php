@@ -19,7 +19,6 @@ class MovieFactory extends Factory
         return [
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(3),
-            'user_id' => \App\Models\User::factory()->create()->id,
         ];
     }
 }

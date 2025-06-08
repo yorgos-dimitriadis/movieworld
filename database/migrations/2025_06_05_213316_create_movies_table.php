@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->text('description');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps(); // created_at = date of publication

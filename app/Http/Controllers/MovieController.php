@@ -20,13 +20,34 @@ class MovieController extends Controller
       ->when($sort === 'likes', fn($q) => $q->orderBy('likes_count', 'desc'))
       ->when($sort === 'hates', fn($q) => $q->orderBy('hates_count', 'desc'))
       ->when($sort === 'date', fn($q) => $q->orderBy('created_at', 'desc'))
-      ->paginate(10);
+      ->paginate();
 
     return Inertia::render('Movies/Index', [
       'canLogin' => Route::has('login'),
       'canRegister' => Route::has('register'),
       'movies' => $movies,
     ]);
+  }
+
+  public function store(Request $request)
+  {
+    if (!auth()->check()) {
+      return redirect()->route('login')->with('error', 'You must be logged in to create a movie.');
+    }
+
+    $request->validate([
+      'title' => 'required|string|max:255|unique:movies,title',
+      'description' => 'nullable|string',
+    ]);
+
+    $movie = new Movie();
+    $movie->user_id = auth()->id();
+    $movie->title = $request->title;
+    $movie->description = $request->description;
+
+    $movie->save();
+
+    return redirect()->route('home')->with('success', 'Movie created successfully.');
   }
 
 }

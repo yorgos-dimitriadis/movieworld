@@ -41,23 +41,31 @@ const vote = (type) => {
 </script>
 
 <template>
-    <div class="p-4 border rounded mb-4">
-        <h2 class="text-xl font-bold">{{ movie.title }}</h2>
-        <p>{{ movie.description }}</p>
-        <p class="text-sm text-gray-600">
-          Posted by <Link :href="route('movies.byUser', movie.user.id)">
-            {{ page.props.auth.user && page.props.auth.user.id === movie.user.id ? 'you' : movie.user.name }}
-          </Link>
-          on {{ formattedDate }}
-        </p>
+    <div class="flex flex-col p-4 border rounded mb-4">
+        <div>
+          <h2 class="text-xl font-bold">{{ movie.title }}</h2>
+          <p>{{ movie.description }}</p>
+        </div>
 
-        <div class="flex gap-4 mt-2">
+        <div class="flex justify-between items-end gap-4 mt-4">
+          <div class="flex items-center gap-2">
             <form @submit.prevent="vote('like')">
-                <button class="text-green-600">👍 {{ movie.likes_count }}</button>
+              <button class="text-green-600">👍 {{ movie.likes_count }}</button>
             </form>
             <form @submit.prevent="vote('hate')">
-                <button class="text-red-600">👎 {{ movie.hates_count }}</button>
+              <button class="text-red-600">👎 {{ movie.hates_count }}</button>
             </form>
+          </div>
+
+          <div class="text-gray-500 text-sm">
+            <p class="text-sm text-gray-600">
+              Posted by
+              <Link :href="route('movies.byUser', movie.user.id)">
+                {{ page.props.auth.user && page.props.auth.user.id === movie.user.id ? 'you' : movie.user.name }}
+              </Link>
+              on {{ formattedDate }}
+            </p>
+          </div>
         </div>
     </div>
 </template>

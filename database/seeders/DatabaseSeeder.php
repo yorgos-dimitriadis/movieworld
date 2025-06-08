@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $user2 = \App\Models\User::factory()->create([
            'name' => 'Kostas',
-           'email' => 'Kostas@example.com',
+           'email' => 'kostas@example.com',
         ]);
 
         $user3 = \App\Models\User::factory()->create([
