@@ -20,7 +20,7 @@ class MovieController extends Controller
       ->when($sort === 'likes', fn($q) => $q->orderBy('likes', 'desc'))
       ->when($sort === 'hates', fn($q) => $q->orderBy('hates', 'desc'))
       ->when($sort === 'date', fn($q) => $q->orderBy('created_at', 'desc'))
-      ->paginate();
+      ->paginate(100);
 
     return Inertia::render('Movies/Index', [
       'canLogin' => Route::has('login'),

@@ -5,7 +5,16 @@ import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 
 const props = defineProps(['movie'])
+const emit = defineEmits(['selectedUserId'])
 const page = usePage()
+
+const handeUserSelection = () => {
+    if (props.movie && props.movie.user && props.movie.user.id) {
+        emit('selectedUserId', props.movie.user.id)
+    } else {
+        console.error('Movie or user ID is not available')
+    }
+}
 
 const formattedDate = computed(() => {
     // Ensure movie and movie.created_at exist and are valid
@@ -60,9 +69,9 @@ const vote = (type) => {
           <div class="text-gray-500 text-sm">
             <p class="text-sm text-gray-600">
               Posted by
-              <Link :href="route('movies.byUser', movie.user.id)">
+              <button class="text-blue-600 hover:underline" @click.prevent="handeUserSelection">
                 {{ page.props.auth.user && page.props.auth.user.id === movie.user.id ? 'you' : movie.user.name }}
-              </Link>
+              </button>
               on {{ formattedDate }}
             </p>
           </div>

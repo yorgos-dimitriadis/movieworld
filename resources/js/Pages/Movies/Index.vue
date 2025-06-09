@@ -27,29 +27,36 @@ const props = defineProps({
 });
 
 const sortOptions = [
+  { name: 'Date', href: '#'},
   { name: 'Likes', href: '#' },
   { name: 'Hates', href: '#'},
-  { name: 'Date', href: '#'},
 ]
 
 const titleInput = ref(null)
 const selectedSort = ref(sortOptions[0].name.toLowerCase())
+const selectedUserId = ref(null);
 
-const sortedMovies = computed(() => {
-  if (!props.movies.data) return []
-  let movies = [...props.movies.data]
-  if (selectedSort.value === 'likes') {
-    return movies.sort((a, b) => b.likes - a.likes)
-  } else if (selectedSort.value === 'hates') {
-    return movies.sort((a, b) => b.hates - a.hates)
-  } else if (selectedSort.value === 'date') {
-    return movies.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-  } else if (selectedSort.value === 'user') {
-    return movies.sort((a, b) => a.user.name.localeCompare(b.user.name))
+const filteredAndSortedMovies = computed(() => {
+  if (!props.movies.data) return [];
+  let movies = [...props.movies.data];
+
+  // Filter by selected user ID if set
+  if (selectedUserId.value) {
+    console.log('Filtering movies for user ID:', selectedUserId.value);
+    return movies.filter(movie => movie.user.id === selectedUserId.value);
   }
 
-  return movies
-})
+  // Apply sorting based on selectedSort
+  if (selectedSort.value === 'likes') {
+    return movies.sort((a, b) => b.likes - a.likes);
+  } else if (selectedSort.value === 'hates') {
+    return movies.sort((a, b) => b.hates - a.hates);
+  } else if (selectedSort.value === 'date') {
+    return movies.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
+
+  return movies;
+});
 
 const gridView = ref(true)
 const gridV = computed(() => gridView.value ? 'lg:grid-cols-2' : 'grid-cols-1')
@@ -59,10 +66,9 @@ const newMovie = useForm({
   description: ''
 })
 function addMovie() {
-  // Logic to add a new movie
-  // This could be a form submission or an API call
   newMovie.post(route('movies.store'), {
-    preserveScroll: false,
+    preserveScroll: true,
+    preserveState: true,
     onSuccess: () => {
       closeMovieForm()
       showSuccessNotification.value = true
@@ -70,8 +76,7 @@ function addMovie() {
     onError: (errors) => {
       console.error('Failed to add movie:', errors)
       titleInput.value.focus()
-    },
-    onFinish: () => newMovie.reset()
+    }
   })
 }
 
@@ -86,6 +91,11 @@ const closeMovieForm = () => {
 const closeSuccessNotification = () => {
   showSuccessNotification.value = false
 }
+
+const handleSelectedUserId = (userId) => {
+  selectedUserId.value = userId;
+  console.log('Selected user ID:', userId);
+};
 </script>
 
 <template>
@@ -162,7 +172,8 @@ const closeSuccessNotification = () => {
 
                       <div class="grid grid-cols-1 gap-6 w-full" :class="gridV">
                         <div class="flex justify-between items-center" :class="gridView ? 'lg:col-span-2' : 'col-span-1'">
-                          <strong class="font-bold">Found {{ movies.data.length }} movies</strong>
+                          <strong class="font-bold">Found {{ filteredAndSortedMovies.length }} movies</strong>
+                          <a href="#" class="text-sm text-gray-500 hover:text-gray-900" @click.prevent="selectedUserId = null">Clear Filter</a>
                           <button v-if="$page.props.auth.user" type="button" class="rounded-md bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100" @click="openMovieForm = true">New Movie</button>
                         </div>
 
@@ -208,9 +219,10 @@ const closeSuccessNotification = () => {
                         </SuccessNotification>
 
                         <MovieCard
-                          v-for="movie in sortedMovies"
+                          v-for="movie in filteredAndSortedMovies"
                           :key="movie.id"
                           :movie="movie"
+                          @selectedUserId="handleSelectedUserId"
                         />
 
                       </div>

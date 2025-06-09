@@ -16,7 +16,7 @@ watch(() => props.show, (newValue) => {
   if (newValue) {
     setTimeout(() => {
       emit('close')
-    }, 3000) // Automatically close after 3 seconds
+    }, 3000)
   }
 })
 </script>
@@ -37,7 +37,7 @@ watch(() => props.show, (newValue) => {
                 <slot v-if="show" />
               </div>
               <div class="ml-4 flex shrink-0">
-                <button type="button" @click="show = false" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <button type="button" @click="emit('close')" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                   <span class="sr-only">Close</span>
                   <XMarkIcon class="size-5" aria-hidden="true" />
                 </button>
