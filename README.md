@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎬 MovieWorld
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+MovieWorld is a simple social sharing platform where users can share their favorite movies of all time and express opinions by liking or hating each movie.
 
-## About Laravel
+Built with **Laravel 9**, **Inertia.js**, and **Vue 3**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🧾 User registration & login
+- 🎥 Add new movies with title and description()
+- 👍👎 Like or hate any movie (except your own)
+- 🔁 Change or retract your vote at any time
+- 👤 Filter movies by user
+- 📊 Sort movies by likes, hates, or date
+- 🕵️ Guest users can view movie list and sign up
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠 Tech Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend**: Laravel 9
+- **Frontend**: Vue 3 + Inertia.js
+- **Auth**: Laravel Breeze (Sanctum)
+- **Styling**: Tailwind CSS
+- **Database**: MySQL / SQLite
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+# Installation Guide
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+you may need to install the following tools before you can run the project:
+1. PHP 8.0
+2. Composer
+3. Node.js (optional, for frontend development)
+4. MySQL or SQLite (for database)
 
-### Premium Partners
+### Windows
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. **Install XAMPP**
 
-## Contributing
+  - [Download XAMPP](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.0.30/xampp-windows-x64-8.0.30-0-VS16-installer.exe)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   This tool come with PHP, MySQL pre-installed and provide an easy way to set up a local development environment.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Verify the installation:**
 
-## Security Vulnerabilities
+   ```sh
+   php -v
+   ```
+   you should see the PHP version as 8.0, like this:
+`PHP 8.0.30 (cli) (built: Mar  1 2023 12:00:00) ( NTS Visual C++ 2019 x64 )`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+3. **Install Composer** by downloading the installer from [getcomposer.org](https://getcomposer.org/download/).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   - Run the installer and follow the instructions to set up Composer globally.
+   - After installation, you can verify it by running:
+
+   ```sh
+    composer -V
+    ```
+
+4. **Start MySQL services** from the XAMPP control panel(you can find it in the XAMPP installation directory, e.g., `C:\xampp\xampp-control.exe`).
+
+<img src="resources/xampp.png" alt="xampp-control.png" width="600">
+---
+
+## ⚙️ Project Setup Instructions
+
+```bash
+# 1. Clone the repo & navigate into the directory
+git clone https://github.com/yorgos-dimitriadis/movieworld.git
+cd movieworld
+
+# 2. Install dependencies
+composer install
+npm install (optional - node.js is required)
+
+# 3. Copy env and configure
+cp .env.example .env
+php artisan key:generate
+
+# 4. Set your database credentials in `.env`
+
+# 5. Run migrations & seed the database
+php artisan migrate --seed
+
+# 6. Start the dev server
+php artisan serve
+npm run dev (optional - node.js is required)

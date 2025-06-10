@@ -1,0 +1,211 @@
+{
+  "_ApplicationLogo-67e70494.js": {
+    "file": "assets/ApplicationLogo-67e70494.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_AuthenticatedLayout-4a388e5a.js": {
+    "file": "assets/AuthenticatedLayout-4a388e5a.js",
+    "imports": [
+      "_ApplicationLogo-67e70494.js",
+      "resources/js/app.js"
+    ]
+  },
+  "_GuestLayout-c948d8b1.js": {
+    "file": "assets/GuestLayout-c948d8b1.js",
+    "imports": [
+      "_ApplicationLogo-67e70494.js",
+      "resources/js/app.js"
+    ]
+  },
+  "_Modal-a05e4ef3.js": {
+    "file": "assets/Modal-a05e4ef3.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_PrimaryButton-a911035d.js": {
+    "file": "assets/PrimaryButton-a911035d.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_TextInput-24fe6fd0.js": {
+    "file": "assets/TextInput-24fe6fd0.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/Pages/Auth/ConfirmPassword.vue": {
+    "file": "assets/ConfirmPassword-1108e5f6.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/ConfirmPassword.vue"
+  },
+  "resources/js/Pages/Auth/ForgotPassword.vue": {
+    "file": "assets/ForgotPassword-02e0e6ca.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/ForgotPassword.vue"
+  },
+  "resources/js/Pages/Auth/Login.vue": {
+    "file": "assets/Login-da5691b3.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/Login.vue"
+  },
+  "resources/js/Pages/Auth/Register.vue": {
+    "file": "assets/Register-2e93563a.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/Register.vue"
+  },
+  "resources/js/Pages/Auth/ResetPassword.vue": {
+    "file": "assets/ResetPassword-74b17a27.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/ResetPassword.vue"
+  },
+  "resources/js/Pages/Auth/VerifyEmail.vue": {
+    "file": "assets/VerifyEmail-bc2cd285.js",
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout-c948d8b1.js",
+      "_PrimaryButton-a911035d.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/VerifyEmail.vue"
+  },
+  "resources/js/Pages/Dashboard.vue": {
+    "file": "assets/Dashboard-fb2f6f22.js",
+    "imports": [
+      "_AuthenticatedLayout-4a388e5a.js",
+      "resources/js/app.js",
+      "_ApplicationLogo-67e70494.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Dashboard.vue"
+  },
+  "resources/js/Pages/Movies/Index.css": {
+    "file": "assets/Index-43422ad6.css",
+    "src": "resources/js/Pages/Movies/Index.css"
+  },
+  "resources/js/Pages/Movies/Index.vue": {
+    "css": [
+      "assets/Index-43422ad6.css"
+    ],
+    "file": "assets/Index-cf9de09f.js",
+    "imports": [
+      "resources/js/app.js",
+      "_ApplicationLogo-67e70494.js",
+      "_Modal-a05e4ef3.js",
+      "_TextInput-24fe6fd0.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Movies/Index.vue"
+  },
+  "resources/js/Pages/Profile/Edit.vue": {
+    "file": "assets/Edit-4180aaca.js",
+    "imports": [
+      "_AuthenticatedLayout-4a388e5a.js",
+      "resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
+      "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
+      "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
+      "resources/js/app.js",
+      "_ApplicationLogo-67e70494.js",
+      "_TextInput-24fe6fd0.js",
+      "_Modal-a05e4ef3.js",
+      "_PrimaryButton-a911035d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Profile/Edit.vue"
+  },
+  "resources/js/Pages/Profile/Partials/DeleteUserForm.vue": {
+    "file": "assets/DeleteUserForm-096b98b7.js",
+    "imports": [
+      "resources/js/app.js",
+      "_TextInput-24fe6fd0.js",
+      "_Modal-a05e4ef3.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.vue"
+  },
+  "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue": {
+    "file": "assets/UpdatePasswordForm-9fb2114e.js",
+    "imports": [
+      "resources/js/app.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue"
+  },
+  "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue": {
+    "file": "assets/UpdateProfileInformationForm-4050e1ed.js",
+    "imports": [
+      "resources/js/app.js",
+      "_TextInput-24fe6fd0.js",
+      "_PrimaryButton-a911035d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-423ec722.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-423ec722.css"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/Auth/ConfirmPassword.vue",
+      "resources/js/Pages/Auth/ForgotPassword.vue",
+      "resources/js/Pages/Auth/Login.vue",
+      "resources/js/Pages/Auth/Register.vue",
+      "resources/js/Pages/Auth/ResetPassword.vue",
+      "resources/js/Pages/Auth/VerifyEmail.vue",
+      "resources/js/Pages/Dashboard.vue",
+      "resources/js/Pages/Movies/Index.vue",
+      "resources/js/Pages/Profile/Edit.vue",
+      "resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
+      "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
+      "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue"
+    ],
+    "file": "assets/app-7ed9b9dc.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
