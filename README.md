@@ -92,3 +92,11 @@ php artisan migrate --seed
 # 6. Start the dev server
 php artisan serve
 npm run dev (optional - node.js is required)
+
+```
+
+## 🌐 Access the App
+
+Open your browser and go to:
+http://localhost:8000
+```
