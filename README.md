@@ -65,7 +65,8 @@ you may need to install the following tools before you can run the project:
 
 4. **Start MySQL services** from the XAMPP control panel(you can find it in the XAMPP installation directory, e.g., `C:\xampp\xampp-control.exe`).
 
-<img src="resources/xampp.png" alt="xampp-control.png" width="600">
+<img src="resources/xampp.png" alt="xampp-control.png" width="600" style="margin: auto; display: block;">
+
 ---
 
 ## ⚙️ Project Setup Instructions
